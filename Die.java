@@ -20,21 +20,46 @@ public class Die extends Rectangle{
         MRight = new Oval(30,20,7,7);
         BRight = new Oval(30,30,7,7);
         Middle = new Oval(20,20,7,7);
-        this.add(TLeft,0);
-        this.add(MLeft,0);
-        this.add(BLeft ,0);
-        this.add(Middle ,0);
-        this.add(TRight,0);
-        this.add(MRight ,0);
-        this.add(BRight ,0);
         this.setBackground(Color.gray);
+        value = Roll();
     }
-    public static void Roll(){
+    public  int Roll(){
         Random gen = new Random();
         value = gen.nextInt(6)+1;
+        if(value==5||value==6||value==4)
+        {
+            this.add(TLeft,0);
+        }
+        if(value==6)
+        {
+            this.add(MLeft,0);
+        }
+        if(value==2||value==3||value==4||value==5||value==6)
+        {
+            this.add(BLeft,0);
+        }
+        if(value==1||value==3||value==5)
+        {
+            this.add(Middle,0);
+        }
+        if(value==2||value==3||value==4||value==5||value==6)
+        {
+            this.add(TRight,0);
+        }
+        if(value==6)
+        {
+            this.add(MRight,0);
+        }
+        if(value==4||value==5||value==6)
+        {
+            this.add(BRight,0);
+        }
+        return value;
+    }
+    public static void getValue(){
+
     }
     public static void main(String[]args){
-        Roll();
         JFrame win = new JFrame("Dice");
         win.setVisible(true);
         win.setBounds(0,0,500,500);
@@ -42,5 +67,14 @@ public class Die extends Rectangle{
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Die die1 = new Die(50,50);
         win.add(die1,0);
+        Die die2 = new Die(100,100);
+        win.add(die2,0);
+        Die die3 = new Die(150,50);
+        win.add(die3,0);
+        Die die4 = new Die(200,100);
+        win.add(die4,0);
+        Die die5 = new Die(250,50);
+        win.add(die5,0);
+
 }
 }
