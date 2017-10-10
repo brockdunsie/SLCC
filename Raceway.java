@@ -1,9 +1,10 @@
 import java.awt.Color;
 import javax.swing.*;
+import java.util.Random;
 public class Raceway extends ButtonWindow {
     private ButtonWindowFrame win;
     private Racer garrett, jake;
-    private boolean done;
+
     private JLabel winner;
     private Rectangle track;
     private Rectangle red;
@@ -15,7 +16,7 @@ public class Raceway extends ButtonWindow {
         winner = new JLabel("Press to go . . .");
         winner.setBounds(50,450,200,25);
         win.add(winner,0);
-        done = false;
+
 
         win.setBackground(Color.black);
         track = new Rectangle(50,50,400,400);

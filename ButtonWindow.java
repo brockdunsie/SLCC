@@ -12,8 +12,8 @@ import java.util.TimerTask;
 public abstract class ButtonWindow  
 {  
     //---- Methods Needing Implementation in Subclasses ----------- 
-    //     public abstract void resetAction();
-    //     public abstract void inputAction();
+       //  public abstract void resetAction();
+         //public abstract void inputAction();
     public abstract void act();
     
     protected class ButtonWindowFrame extends JFrame implements ActionListener
@@ -82,14 +82,14 @@ public abstract class ButtonWindow
 
         public void actionPerformed(ActionEvent e)
         {
-            //             if (e.getSource() == actButton)
+           //           if (e.getSource() == actButton)
             act(); 
-            //             else if (e.getSource() == inputButton)
-            //                 inputAction();
-            //             else if (e.getSource() == resetButton)
-            //                 resetAction();
-            //             else if (e.getSource() == animateButton)
-            //                 animate();
+             //            else if (e.getSource() == inputButton)
+               //              inputAction();
+                 //        else if (e.getSource() == resetButton)
+                   //          resetAction();
+                     //    else if (e.getSource() == animateButton)
+                       //      animate();
         }
 
         //-------- Additional Regular Buttons and Methods --------------
