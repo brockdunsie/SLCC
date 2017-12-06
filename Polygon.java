@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Write a description of class Polygon here.
  * 
- * @author Sharon Dereamer
+ * @author (your name) 
  * @version (a version number or a date)
  */
 public class Polygon extends Container
@@ -14,19 +14,20 @@ public class Polygon extends Container
     private int startY;
     private int size;
     private double startAngle;
-
+    private Color myColor;
     /**
      * Constructor for objects of class Polygon
      */
-    public Polygon(int x, int y, int size, int n, double startAngle)
+    public Polygon(int x, int y, int size, int n, double startAngle,Color c)
     {
         // initialise instance variables
-        setBounds (0, 0, 800, 800);
+        setBounds (0, 0, 1200, 700);
         numSides = n;
         startX = x;
         startY = y;
         this.size = size;
         this.startAngle = startAngle;
+        myColor = c;
         makePolygon ();
     }
 
@@ -42,6 +43,7 @@ public class Polygon extends Container
             int deltaX = (int) (Math.cos (newAngle) * size);
             int deltaY = (int) (Math.sin (newAngle) * size);
             Line line = new Line (newX, newY, newX + deltaX, newY - deltaY);
+            line.setBackground(myColor);
             this.add (line, 0);
             newX = newX + deltaX;
             newY = newY - deltaY;

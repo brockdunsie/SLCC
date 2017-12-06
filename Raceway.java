@@ -11,7 +11,7 @@ public class Raceway extends ButtonWindow {
     public Raceway()
     {
         win = new ButtonWindowFrame("Race Time");
-        win.addActButton(350, 450, 100, 25);
+        win.addAnimateButton(350, 450, 100, 25);
         garrett = new Racer(50,50,50,50,"Sanic.png");
         winner = new JLabel("Press to go . . .");
         winner.setBounds(50,450,200,25);
