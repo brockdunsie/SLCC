@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Ticked {
+    static int x = 0;
     public static char[][] tac = new char[3][3];
     public static void tic() {
         for (char row = 0; row < tac.length; row++) {
@@ -9,11 +10,6 @@ public class Ticked {
             }
          }
         }
-//  public static boolean fin(){
-////            if (tac[0][0] = 1  && tac[1][1]= 1) {
-////
-////            }
-//        }
     public static void draw(){
         System.out.println("\t");
         for (char row = 0; row < tac.length; row++) {
@@ -38,7 +34,6 @@ public class Ticked {
         return p2;
     }
     public static void turn(String p4, String p5) {
-        int x = 0;
         Character p1 = p4.charAt(0);
         Character p2 = p5.charAt(0);
         String choice;
@@ -62,7 +57,7 @@ public class Ticked {
             {
                 tac[1][0] = p1;
             }
-            else if(choice.equals("c"))
+            else if(choice.equals("m") || choice.equals("mm"))
             {
                 tac[1][1] = p1;
             }
@@ -103,7 +98,7 @@ public class Ticked {
             {
                 tac[1][0] = p2;
             }
-            else if(choice.equals("c"))
+            else if(choice.equals("m") ||choice.equals("mm"))
             {
                 tac[1][1] = p2;
             }
@@ -126,7 +121,84 @@ public class Ticked {
             x=0;
         }
     }
-    public static void checkForWinner(){
+    public static boolean checkForWinner(String p4, String p5){
+        Character p1 = p4.charAt(0);
+        Character p2 = p5.charAt(0);
+        
+        boolean w = false;
+        if(tac[0][0] == p1 && tac[0][1] == p1 && tac[0][2] == p1)
+        {
+            w = true;
+        }
+        else if(tac[1][0] == p1 && tac[1][1] == p1 && tac[1][2] == p1)
+        {
+            w = true;
+        }
+        else if(tac[2][0] == p1 && tac[2][1] == p1 && tac[2][2] == p1)
+        {
+            w = true;
+        }
+        else if(tac[0][0] == p1 && tac[1][1] == p1 && tac[2][2] == p1)
+        {
+            w = true;
+        }
+        else if(tac[0][2] == p1 && tac[1][1] == p1 && tac[2][0] == p1)
+        {
+            w = true;
+        }
+        else if(tac[0][0] == p1 && tac[1][0] == p1 && tac[2][0] == p1)
+        {
+            w = true;
+        }
+        else if(tac[0][1] == p1 && tac[1][1] == p1 && tac[2][1] == p1)
+        {
+            w = true;
+        }
+        else if(tac[0][2] == p1 && tac[1][2] == p1 && tac[2][2] == p1)
+        {
+            w = true;
+        }        
+        else
+        {
+            w = false;
+        }
+        if(tac[0][0] == p2 && tac[0][1] == p2 && tac[0][2] == p2)
+        {
+            w = true;
+        }
+        else if(tac[1][0] == p2 && tac[1][1] == p2 && tac[1][2] == p2)
+        {
+            w = true;
+        }
+        else if(tac[2][0] == p2 && tac[2][1] == p2 && tac[2][2] == p2)
+        {
+            w = true;
+        }
+        else if(tac[0][0] == p2 && tac[1][1] == p2 && tac[2][2] == p2)
+        {
+            w = true;
+        }
+        else if(tac[0][2] == p2 && tac[1][1] == p2 && tac[2][0] == p2)
+        {
+            w = true;
+        }
+        else if(tac[0][0] == p2 && tac[1][0] == p2 && tac[2][0] == p2)
+        {
+            w = true;
+        }
+        else if(tac[0][1] == p2 && tac[1][1] == p2 && tac[2][1] == p2)
+        {
+            w = true;
+        }
+        else if(tac[0][2] == p2 && tac[1][2] == p2 && tac[2][2] == p2)
+        {
+            w = true;
+        }             
+        else
+        {
+            w = false;
+        }
+        return w;
     }
     public static void main (String[]args)
     {
@@ -135,11 +207,14 @@ public class Ticked {
         tic();
         draw();
         boolean w=false;
-        System.out.println("Positions are tl for Top Left, ml for Middle Left, bl for Bottom Left, and c for center and so forth ");
+        System.out.println("Positions are tl for Top Left, ml for Middle Left, bl for Bottom Left, and mm for the middle and so forth ");
+        String pe = pe();
+        String pew = pew();
         do {
-            turn(pe(),pew());
+            turn(pe,pew);
             draw();
-
+            w = checkForWinner(pe,pew);
+            System.out.println(w);
         }
         while(w!=true);
     }

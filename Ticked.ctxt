@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Ticked
+comment1.params=
+comment1.target=void\ tic()
+comment2.params=
+comment2.target=void\ draw()
+comment3.params=
+comment3.target=java.lang.String\ pe()
+comment4.params=
+comment4.target=java.lang.String\ pew()
+comment5.params=p4\ p5
+comment5.target=void\ turn(java.lang.String,\ java.lang.String)
+comment6.params=p4\ p5
+comment6.target=boolean\ checkForWinner(java.lang.String,\ java.lang.String)
+comment7.params=args
+comment7.target=void\ main(java.lang.String[])
+numComments=8
