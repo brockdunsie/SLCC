@@ -34,64 +34,61 @@ public class Ipod {
         while (quit.equalsIgnoreCase("yes"));
     }
 
-    public void find(){
+    public void find() {
         Scanner scan = new Scanner(System.in);
         String quit = "";
-        String t;
-        String a;
-        String g;
+        String t = "";
+        String a = "";
+        String g = "";
         do {
 
             System.out.println("Which are you searching by title, artist, or genre?");
             String f = scan.nextLine();
             int count = 0;
-            System.out.println("Enter the title");
-            t=scan.nextLine();
-            System.out.println("Enter the artists name");
-            a = scan.nextLine();
-            System.out.println("Enter the genre");
-            g = scan.nextLine();
-            for (Song s : songlist) {
-                if (f.equalsIgnoreCase("title")) {
-                    if(s.getTitle().equals(t))
-                    {
-                        s.toString();
-                    }
-                    else
-                    {
-                        count += 1;
-                    }
+            if (f.equalsIgnoreCase("Title")) {
 
-                }
-                else if (f.equalsIgnoreCase("artist")) {
-
-                    if(s.getArtist().equals(a))
-                    {
-                        s.toString();
-                    }
-                    else
-                    {
-                        count += 1;
-                    }
-                }
-                else if (f.equalsIgnoreCase("genre")) {
-                    if(s.getGenre().equals(g))
-                    {
-                        s.toString();
-                    }
-                    else
-                    {
-                        count += 1;
-                    }
-                }
-                if (count == songlist.size()) {
-                    System.out.println("Nothing was found");
-                }
+                System.out.println("Enter the title");
+                t = scan.nextLine();
             }
-            System.out.println("Enter yes to search again or Enter no to exit");
-            quit = scan.nextLine();
-        }while (quit.equalsIgnoreCase("yes"));
-    }
+            else if (f.equalsIgnoreCase("artist")) {
+                System.out.println("Enter the artists name");
+                a = scan.nextLine();
+            }
+            else if (f.equalsIgnoreCase("genre")) {
+                System.out.println("Enter the genre");
+                g = scan.nextLine();
+            }
+                for (Song s : songlist) {
+                    if (f.equalsIgnoreCase("title")) {
+                        if (s.getTitle().equals(t)) {
+                            System.out.println(s.toString());
+                        } else {
+                            count += 1;
+                        }
+
+                    } else if (f.equalsIgnoreCase("artist")) {
+
+                        if (s.getArtist().equals(a)) {
+                            System.out.println(s.toString());
+                        } else {
+                            count += 1;
+                        }
+                    } else if (f.equalsIgnoreCase("genre")) {
+                        if (s.getGenre().equals(g)) {
+                            System.out.println(s.toString());
+                        } else {
+                            count += 1;
+                        }
+                    }
+                    if (count == songlist.size()) {
+                        System.out.println("Nothing was found");
+                    }
+                }
+                System.out.println("Enter yes to search again or Enter no to exit");
+                quit = scan.nextLine();
+            }
+            while (quit.equalsIgnoreCase("yes")) ;
+        }
     public static void main(String[] args)
     {
         Ipod song = new Ipod();
