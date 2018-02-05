@@ -4,34 +4,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Dessert {
+public abstract class Dessert {
     public String flavors;
     public ArrayList<String> ingredients;
     public Dessert(){
-
-
-    }
-    public void prepare(){
+        ingredients = new ArrayList<>();
 
     }
-    public void create(){
-
-    }
-    public String finish(){
-        return flavors;
-    }
-    public void store(String storage){
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Fridge.txt"));
-            writer.write(storage);
-            writer.close();
-        }
-        catch (IOException ex)
-        {
-            System.out.println("Error");
-            ex.printStackTrace();
-        }
-    }
+    public abstract void prepare();
+    public abstract void create();
+    public abstract String finish();
+    public abstract void store();
     public ArrayList Ingredients(){
         Scanner scan = new Scanner(System.in);
         String choice;
