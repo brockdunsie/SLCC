@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Dessert {
-    public String flavors;
-    public ArrayList<String> ingredients;
-    public Dessert(){
+    protected ArrayList<String> ingredients;
+    protected static ArrayList<Dessert> spread;
+    protected static String flavor;
+    public Dessert(String f){
         ingredients = new ArrayList<>();
-
+        flavor = f;
+        spread = new ArrayList<>();
     }
     public abstract void prepare();
     public abstract void create();
-    public abstract String finish();
+    public abstract void finish();
     public abstract void store();
-    public ArrayList Ingredients(){
+    public ArrayList setIngredients(Dessert des){
         Scanner scan = new Scanner(System.in);
         String choice;
         do {
-            System.out.println("In the order they are added, add the ingredient for your recipe or enter done to finish");
+            System.out.println("In the order they are added, add the ingredient for your " + des + " or enter done to finish");
             choice = scan.nextLine();
             ingredients.add(choice);
         }while (!choice.equalsIgnoreCase("done"));
@@ -27,6 +29,6 @@ public abstract class Dessert {
     }
     @Override
     public String toString() {
-        return super.toString();
+        return flavor + ingredients;
     }
 }
