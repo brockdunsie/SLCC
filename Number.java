@@ -8,6 +8,7 @@ public class Number extends Digit{
         return display;
     }
     public void num(int display){
+        this.display = display;
         if (display == 0)
         {
             tl.setVisible(true);
