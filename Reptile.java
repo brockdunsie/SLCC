@@ -1,9 +1,9 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Landscape extends ClickPic implements MouseListener {
-    public Landscape(String n, PictureFrame w){
-        super(0,0,1000,1000, "MountainFall.jpg", n, w);
+public class Reptile extends ClickPic implements MouseListener{
+    public Reptile(String n, PictureFrame w){
+        super(100,800,100,100, "Alligator.png", n, w);
 
     }
 
@@ -15,16 +15,16 @@ public class Landscape extends ClickPic implements MouseListener {
     @Override
     public void changeImage() {
         count++;
-        count %= 3;
+        count %= 2;
         switch (count) {
             case 0:
-                setImage("MountainFall.jpg");
+                setImage("alligator.png");
                 break;
             case 1:
-                setImage("MountainWinter.jpg");
+                setImage("frog.png");
                 break;
             case 2:
-                setImage("MountainSummer.jpg");
+                setImage("turtle.png");
                 break;
         }
 

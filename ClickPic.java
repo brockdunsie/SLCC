@@ -25,7 +25,8 @@ public abstract class ClickPic extends ImagePanel implements MouseListener {
     {
         return name;
     }
-    public abstract void changeImage();
+    public abstract void changeImage(
+    );
     public void mouseExited(MouseEvent e)
     {
 
